@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <meta http-equiv='content-type' content='text/html; charset=ISO-8859-1'>
+    <title>SER422 Node Set Preferences</title>
+  </head>
+  <body>
+    <p>
+      Your current rendering preference is <em><%= preference %></em>
+    </p>
+    <p>
+      <form action='setpreferences' method='get'>
+        <input type='hidden' name='action' value='setpreferences'>
+        <input type='radio' name='preference' value='horizontal' 
+               <% if (preference === 'horizontal') { %> checked <% } %> >Horizontal<br>
+        <input type='radio' name='preference' value='vertical'
+               <% if (preference === 'vertical') { %> checked <% } %> >Vertical<br>
+        <input type='submit' name='submit' value='OK'/>
+      </form>
+    </p>
+  </body>
+</html>

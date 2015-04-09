@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta http-equiv='content-type' content='text/html; charset=ISO-8859-1'>
+    <title>SER422 Node Survey</title>
+  </head>
+  <body>
+    <p>Survey page: <%= questionNum + 1 %> for user <%= username %> <br/><br/>
+      <%= questions[questionNum].question %>
+    </p>
+    <p>
+      <a href='preferences'>Set your rendering preferences</a>
+    </p>
+    <p>
+      <form action='survey' method='get'>
+  
+        <% for (var i=0; i < questions[questionNum].answers.length; i++) { 
+              var answer = questions[questionNum].answers[i] %>
+              <input type='radio' name='answer' value='<%= answer %>'
+                     <% if (previousAnswer === answer) { %>
+                      checked
+                    <% } %>
+                     > <%= answer %>
+              <% if ( preference === 'vertical') { %>
+                  <br>
+              <% } %>
+        <% } %>
+        
+        <% if ( questionNum > 0 ) { %>
+          <input type='submit' name='action' value='previous'>
+        <% } %>
+
+        <input type='submit' name='action' value='next'>
+      </form>
+    </p>
+  </body>
+</html>
