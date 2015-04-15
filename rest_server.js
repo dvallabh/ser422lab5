@@ -42,7 +42,7 @@ function getQuestion(req, res, next) {
   fs.readFile(surveyFile, function(err, data) {
     if (data) {
       var surveyData = JSON.parse(data);
-      var question = surveyData.questions[req.params.num];
+      var question = surveyData.questions[req.params.num-1];
       if (question) {
         res.send(200, question);
       }else {
